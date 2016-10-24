@@ -1,1 +1,1 @@
-# froko.OAuth.Jwt #
+# froko.Owin.Security.Jwt #
