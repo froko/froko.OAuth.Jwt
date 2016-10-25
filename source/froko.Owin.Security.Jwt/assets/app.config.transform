@@ -1,0 +1,7 @@
+﻿<configuration>
+  <appSettings>
+    <add key="Issuer" value="http://localhost" />
+    <add key="AudienceId" value="414e1927a3884f68abc79f7283837fd1" />
+    <add key="AudienceSecret" value="qMCdFDQuF23RV1Y-1Gq9L3cF3VmuFwVbam4fMTdAfpo" />
+  </appSettings>
+</configuration>

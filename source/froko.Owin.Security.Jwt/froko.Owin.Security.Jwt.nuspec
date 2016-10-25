@@ -19,6 +19,8 @@
         <file src="bin\Release\froko.Owin.Security.Jwt.dll" target="lib\net461" />
 		<file src="bin\Release\froko.Owin.Security.Jwt.pdb" target="lib\net461" />
 		<file src="bin\Release\froko.Owin.Security.Jwt.xml" target="lib\net461" />
+		<file src="assets\app.config.transform" target="content\app.config.transform" />
+		<file src="assets\web.config.transform" target="content\web.config.transform" />
 		<file src="**\*.cs" target="src" />
     </files>
 </package>

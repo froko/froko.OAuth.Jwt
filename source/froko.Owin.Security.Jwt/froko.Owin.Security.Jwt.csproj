@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="assets\app.config.transform" />
+    <None Include="assets\web.config.transform" />
     <None Include="packages.config" />
     <None Include="Settings.StyleCop" />
   </ItemGroup>
