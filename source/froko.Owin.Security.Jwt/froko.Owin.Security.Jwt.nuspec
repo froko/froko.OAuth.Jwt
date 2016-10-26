@@ -4,9 +4,11 @@
         <id>froko.Owin.Security.Jwt</id>
         <version>1.0.0</version>
         <authors>Patrick Ineichen</authors>
+		<owners>Patrick Ineichen</owners>
         <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+		<projectUrl>https://github.com/froko/froko.Owin.Security.Jwt</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>Enable authentication with JWT tokens in an ASP.NET WebAPI project</description>
+        <description>Enable authentication with JWT tokens in Owin based API projects</description>
         <dependencies>
             <dependency id="Owin" version="1.0" />
             <dependency id="Microsoft.Owin.Security.OAuth" version="3.0.1" />
@@ -16,11 +18,11 @@
         </dependencies>
     </metadata>
     <files>
+		<file src="assets\app.config.transform" target="content\app.config.transform" />
+		<file src="assets\web.config.transform" target="content\web.config.transform" />
         <file src="bin\Release\froko.Owin.Security.Jwt.dll" target="lib\net461" />
 		<file src="bin\Release\froko.Owin.Security.Jwt.pdb" target="lib\net461" />
 		<file src="bin\Release\froko.Owin.Security.Jwt.xml" target="lib\net461" />
-		<file src="assets\app.config.transform" target="content\app.config.transform" />
-		<file src="assets\web.config.transform" target="content\web.config.transform" />
 		<file src="**\*.cs" target="src" />
     </files>
 </package>
