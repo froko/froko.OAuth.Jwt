@@ -45,33 +45,15 @@ namespace froko.Owin.Security.Jwt
         /// Configures OAuth authentication with Json Web Tokens (JWT)
         /// and allows the use of insecure HTTP
         /// </summary>
+        /// <remarks>
+        /// This represents the most simple use case:
+        /// - Username and password must be the same
+        /// - The user name is added as role name to the <see cref="ClaimsIdentity"/> object
+        /// </remarks>
         /// <param name="app">The app builder to configure</param>
-        /// <param name="verifyCredentials">Async function call which verifies credentials</param>
-        /// <param name="fillClaims">Async function call which adds claims to the <see cref="ClaimsIdentity"/> object</param>
-        public static void UseOauthWithJwtTokensAndInsecureHttp(
-            this IAppBuilder app,
-            Func<UserName, Password, Task<bool>> verifyCredentials,
-            Func<UserName, ClaimsIdentity, Task> fillClaims)
+        public static void UseOauthWithJwtTokens(this IAppBuilder app)
         {
-            var issuer = ConfigurationManager.AppSettings["Issuer"];
-            var audienceId = ConfigurationManager.AppSettings["AudienceId"];
-            var audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["AudienceSecret"]);
-
-            app.ConfigureOAuthTokenGeneration(
-                true,
-                TokenEndpointPath,
-                AccessTokenExpireTimeSpan,
-                AllOrigins,
-                issuer,
-                audienceId,
-                audienceSecret,
-                verifyCredentials,
-                fillClaims);
-
-            app.ConfigureOAuthTokenConsumption(
-                issuer, 
-                audienceId, 
-                audienceSecret);
+            app.UseOauthWithJwtTokens(new SimpleOAuthWithJwtTokens());
         }
 
         /// <summary>
@@ -132,22 +114,7 @@ namespace froko.Owin.Security.Jwt
                 configuration.AudienceId,
                 configuration.AudienceSecret);
         }
-
-        /// <summary>
-        /// Configures OAuth authentication with Json Web Tokens (JWT)
-        /// and allows the use of insecure HTTP
-        /// </summary>
-        /// <remarks>
-        /// This represents the most simple use case:
-        /// - Username and password must be the same
-        /// - The user name is added as role name to the <see cref="ClaimsIdentity"/> object
-        /// </remarks>
-        /// <param name="app">The app builder to configure</param>
-        public static void UseOauthWithJwtTokens(this IAppBuilder app)
-        {
-            app.UseOauthWithJwtTokens(new SimpleOAuthWithJwtTokens());
-        }
-
+        
         private static void ConfigureOAuthTokenGeneration(
             this IAppBuilder app,
             bool allowInsecureHttp,
@@ -160,14 +127,18 @@ namespace froko.Owin.Security.Jwt
             Func<UserName, Password, Task<bool>> verifyCredentials,
             Func<UserName, ClaimsIdentity, Task> fillClaims)
         {
-            var oAuthServerOptions = new OAuthAuthorizationServerOptions()
+            var oAuthServerOptions = new OAuthAuthorizationServerOptions
             {
-                AllowInsecureHttp = allowInsecureHttp,
                 TokenEndpointPath = new PathString(tokenEndpointPath),
                 AccessTokenExpireTimeSpan = accessTokenExpireTimeSpan,
                 Provider = new JwtOAuthProvider(allowedOrigins, verifyCredentials, fillClaims),
                 AccessTokenFormat = new JwtTokenFormat(issuer, audienceId, audienceSecret)
             };
+
+            if (allowInsecureHttp)
+            {
+                oAuthServerOptions.AllowInsecureHttp = true;
+            }
 
             app.UseOAuthAuthorizationServer(oAuthServerOptions);
         }
