@@ -41,6 +41,7 @@ The solution is based on a blog post by Taiseer Joudeh (Bit of Technology) and c
     	        return configuration;
     	    }
     	}
+
 ## Configuration ##
 The NuGet package adds the following app settings to your app.config/web.config:
 
