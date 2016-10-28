@@ -68,12 +68,14 @@ namespace froko.Owin.Security.Jwt
             Func<UserName, Password, Task<bool>> verifyCredentials,
             Func<UserName, ClaimsIdentity, Task> fillClaims)
         {
+            const bool AllowInsecureHttp = true;
+
             var issuer = ConfigurationManager.AppSettings["Issuer"];
             var audienceId = ConfigurationManager.AppSettings["AudienceId"];
             var audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["AudienceSecret"]);
 
             app.ConfigureOAuthTokenGeneration(
-                false,
+                AllowInsecureHttp,
                 TokenEndpointPath,
                 AccessTokenExpireTimeSpan,
                 AllOrigins,
