@@ -4,7 +4,7 @@ $nugetDir = "$baseDir\nuget"
 $nugetCommand = "$sourceDir\.nuget\NuGet.exe"
 	
 Function NugetPackages {
-	return Get-ChildItem $nugetDir\*.nupkg -Exclude *.symbols.nupkg
+	return Get-ChildItem $nugetDir\*.nupkg
 }
 
 NugetPackages |
