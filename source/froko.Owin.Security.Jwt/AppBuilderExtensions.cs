@@ -58,7 +58,7 @@ namespace froko.Owin.Security.Jwt
 
         /// <summary>
         /// Configures OAuth authentication with Json Web Tokens (JWT)
-        /// and allows only secure HTTPS
+        /// and allows the use of insecure HTTP
         /// </summary>
         /// <param name="app">The app builder to configure</param>
         /// <param name="verifyCredentials">Async function call which verifies credentials</param>
