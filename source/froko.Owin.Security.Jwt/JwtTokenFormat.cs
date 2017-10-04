@@ -19,11 +19,10 @@
 namespace froko.Owin.Security.Jwt
 {
     using System;
-    using System.IdentityModel.Tokens;
+    using System.IdentityModel.Tokens.Jwt;
 
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
-
-    using Thinktecture.IdentityModel.Tokens;
 
     /// <summary>
     /// The JWT token format
@@ -55,7 +54,11 @@ namespace froko.Owin.Security.Jwt
                 throw new ArgumentNullException(nameof(data));
             }
             
-            var signingKey = new HmacSigningCredentials(this.audienceSecret);
+            var signingKey = new SymmetricSecurityKey(this.audienceSecret);
+            var signingCredentials = new SigningCredentials(
+                signingKey,
+                SecurityAlgorithms.HmacSha256Signature);
+
             var issued = data.Properties.IssuedUtc;
             var expires = data.Properties.ExpiresUtc;
 
@@ -66,7 +69,7 @@ namespace froko.Owin.Security.Jwt
                 data.Identity.Claims,
                 issued?.UtcDateTime,
                 expires?.UtcDateTime,
-                signingKey);
+                signingCredentials);
 
             return handler.WriteToken(token);
         }
