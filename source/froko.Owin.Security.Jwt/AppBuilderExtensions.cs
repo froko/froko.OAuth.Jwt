@@ -151,9 +151,9 @@ namespace froko.Owin.Security.Jwt
             {
                 AuthenticationMode = AuthenticationMode.Active,
                 AllowedAudiences = new[] { audienceId },
-                IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                IssuerSecurityKeyProviders = new IIssuerSecurityKeyProvider[]
                 {
-                    new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
+                    new SymmetricKeyIssuerSecurityKeyProvider(issuer, audienceSecret)
                 }
             };
 

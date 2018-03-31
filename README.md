@@ -1,6 +1,6 @@
 # froko.Owin.Security.Jwt #
 
-This repo is the source of a NuGet package which enables authentication with Json Web Tokens (JWT) on Owin based windows or web applications. This is particularly useful when you plan to create an API for a web application that's built with JavaScript/Typescript like Angular 2.
+This repo is the source of a NuGet package which enables authentication with Json Web Tokens (JWT) on Owin based windows or web applications. This is particularly useful when you plan to create an API for a web application that's built with JavaScript/Typescript like Angular.
 
 The solution is based on a blog post by Taiseer Joudeh (Bit of Technology) and can be found [here](http://bitoftech.net/2015/02/16/implement-oauth-json-web-tokens-authentication-in-asp-net-web-api-and-identity-2/).
 

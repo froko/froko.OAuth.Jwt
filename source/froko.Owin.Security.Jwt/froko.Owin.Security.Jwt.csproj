@@ -32,32 +32,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.4\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.2.1\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.4\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.2.1\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Jwt, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.1.0\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.4.0.0\lib\net451\Microsoft.Owin.Security.Jwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -68,10 +68,11 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.4\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.2.1\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,17 +110,17 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\GitVersionTask.3.6.5\build\dotnet\GitVersionTask.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GitVersionTask.3.6.5\build\dotnet\GitVersionTask.targets'))" />
-    <Error Condition="!Exists('..\packages\OctoPack.3.6.1\build\OctoPack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OctoPack.3.6.1\build\OctoPack.targets'))" />
     <Error Condition="!Exists('..\packages\StyleCop.MSBuild.5.0.0\build\StyleCop.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StyleCop.MSBuild.5.0.0\build\StyleCop.MSBuild.targets'))" />
     <Error Condition="!Exists('..\packages\froko.csprojSetup.1.16.0\build\froko.csprojSetup.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\froko.csprojSetup.1.16.0\build\froko.csprojSetup.Targets'))" />
     <Error Condition="!Exists('..\packages\froko.csprojSetup.OctoPack.1.16.0\build\froko.csprojSetup.OctoPack.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\froko.csprojSetup.OctoPack.1.16.0\build\froko.csprojSetup.OctoPack.Targets'))" />
     <Error Condition="!Exists('..\packages\froko.csprojSetup.XmlDocumentation.1.16.0\build\froko.csprojSetup.XmlDocumentation.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\froko.csprojSetup.XmlDocumentation.1.16.0\build\froko.csprojSetup.XmlDocumentation.Targets'))" />
+    <Error Condition="!Exists('..\packages\OctoPack.3.6.3\build\OctoPack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OctoPack.3.6.3\build\OctoPack.targets'))" />
   </Target>
-  <Import Project="..\packages\OctoPack.3.6.1\build\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.6.1\build\OctoPack.targets')" />
   <Import Project="..\packages\StyleCop.MSBuild.5.0.0\build\StyleCop.MSBuild.targets" Condition="Exists('..\packages\StyleCop.MSBuild.5.0.0\build\StyleCop.MSBuild.targets')" />
   <Import Project="..\packages\froko.csprojSetup.1.16.0\build\froko.csprojSetup.Targets" Condition="Exists('..\packages\froko.csprojSetup.1.16.0\build\froko.csprojSetup.Targets')" />
   <Import Project="..\packages\froko.csprojSetup.OctoPack.1.16.0\build\froko.csprojSetup.OctoPack.Targets" Condition="Exists('..\packages\froko.csprojSetup.OctoPack.1.16.0\build\froko.csprojSetup.OctoPack.Targets')" />
   <Import Project="..\packages\froko.csprojSetup.XmlDocumentation.1.16.0\build\froko.csprojSetup.XmlDocumentation.Targets" Condition="Exists('..\packages\froko.csprojSetup.XmlDocumentation.1.16.0\build\froko.csprojSetup.XmlDocumentation.Targets')" />
+  <Import Project="..\packages\OctoPack.3.6.3\build\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.6.3\build\OctoPack.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
