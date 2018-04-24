@@ -51,9 +51,9 @@ namespace froko.Owin.Security.Jwt
         public virtual AllowedOrigins AllowedOrigins => AllowedOrigins.All;
 
         /// <summary>
-        /// Gets the fact that insecure HTTP is allowed (Default: false / not allowed)
+        /// Gets the fact that insecure HTTP is allowed (Default: true / allowed)
         /// </summary>
-        public virtual bool AllowInsecureHttp => false;
+        public virtual bool AllowInsecureHttp => true;
 
         /// <summary>
         /// Gets the token endpoint path
