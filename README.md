@@ -93,7 +93,7 @@ There are multiple overloads of the `UseOauthWithJwtTokens` extensions method:
         
 	        public virtual AllowedOrigins AllowedOrigins => AllowedOrigins.All;
 
-        	public virtual bool AllowInsecureHttp => false;
+        	public virtual bool AllowInsecureHttp => true;
 
 	        public virtual string TokenEndpointPath => "/oauth/token";
 			
