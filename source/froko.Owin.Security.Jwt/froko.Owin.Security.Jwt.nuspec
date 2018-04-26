@@ -11,9 +11,9 @@
     <description>Enable authentication with JWT tokens in Owin based API projects</description>
     <dependencies>
       <dependency id="Owin" version="1.0" />
-      <dependency id="Microsoft.Owin.Security.OAuth" version="3.1.0" />
-      <dependency id="Microsoft.Owin.Security.Jwt" version="3.1.0" />
-      <dependency id="System.IdentityModel.Tokens.Jwt" version="5.1.4" />
+      <dependency id="Microsoft.Owin.Security.OAuth" version="4.0.0" />
+      <dependency id="Microsoft.Owin.Security.Jwt" version="4.0.0" />
+      <dependency id="System.IdentityModel.Tokens.Jwt" version="5.2.1" />
       <dependency id="Thinktecture.IdentityModel.Core" version="1.4.0" />
     </dependencies>
   </metadata>
