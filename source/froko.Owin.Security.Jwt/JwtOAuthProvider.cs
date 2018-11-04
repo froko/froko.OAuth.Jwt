@@ -19,9 +19,12 @@
 namespace froko.Owin.Security.Jwt
 {
     using System;
+    using System.Configuration;
+    using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
+    using Microsoft.Owin;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.OAuth;
 
@@ -51,6 +54,19 @@ namespace froko.Owin.Security.Jwt
         }
 
         /// <inheritdoc />
+        public override Task MatchEndpoint(OAuthMatchEndpointContext context)
+        {
+            SetCorsPolicy(context.OwinContext);
+            if (context.Request.Method == "OPTIONS")
+            {
+                context.RequestCompleted();
+                return Task.FromResult(0);
+            }
+
+            return base.MatchEndpoint(context);
+        }
+
+        /// <inheritdoc />
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
@@ -72,6 +88,26 @@ namespace froko.Owin.Security.Jwt
             var ticket = new AuthenticationTicket(identity, null);
 
             context.Validated(ticket);
+        }
+
+        private static void SetCorsPolicy(IOwinContext context)
+        {
+            var allowedUrls = ConfigurationManager.AppSettings["allowedOrigins"];
+            if (!string.IsNullOrWhiteSpace(allowedUrls))
+            {
+                var list = allowedUrls.Split(',');
+                if (list.Length > 0)
+                {
+                    var origin = context.Request.Headers.Get("Origin");
+                    if (list.Any(item => item == origin))
+                    {
+                        context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { origin });
+                    }
+                }
+            }
+
+            context.Response.Headers.Add("Access-Control-Allow-Headers", new[] { "Authorization", "Content-Type" });
+            context.Response.Headers.Add("Access-Control-Allow-Methods", new[] { "OPTIONS", "POST" });
         }
     }
 }
