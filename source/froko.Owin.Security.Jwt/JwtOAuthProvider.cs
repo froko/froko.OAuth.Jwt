@@ -19,8 +19,6 @@
 namespace froko.Owin.Security.Jwt
 {
     using System;
-    using System.Configuration;
-    using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -90,22 +88,9 @@ namespace froko.Owin.Security.Jwt
             context.Validated(ticket);
         }
 
-        private static void SetCorsPolicy(IOwinContext context)
+        private void SetCorsPolicy(IOwinContext context)
         {
-            var allowedUrls = ConfigurationManager.AppSettings["allowedOrigins"];
-            if (!string.IsNullOrWhiteSpace(allowedUrls))
-            {
-                var list = allowedUrls.Split(',');
-                if (list.Length > 0)
-                {
-                    var origin = context.Request.Headers.Get("Origin");
-                    if (list.Any(item => item == origin))
-                    {
-                        context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { origin });
-                    }
-                }
-            }
-
+            context.Response.Headers.Add("Access-Control-Allow-Origin", this.allowedOrigins);
             context.Response.Headers.Add("Access-Control-Allow-Headers", new[] { "Authorization", "Content-Type" });
             context.Response.Headers.Add("Access-Control-Allow-Methods", new[] { "OPTIONS", "POST" });
         }
